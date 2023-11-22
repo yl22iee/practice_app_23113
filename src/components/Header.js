@@ -2,47 +2,52 @@ import { Link } from "react-router-dom";
 import { routes } from "../routes";
 import { styled } from "styled-components";
 
-const HelloHeader = styled.header`
-  width: 90%;
+const HelloHeader = styled.div`
+  width: 100%;
+  padding: 20px 5%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 5%;
+  a {
+    color: white;
+  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
 `;
 
 const Logo = styled.div`
   font-size: 20px;
-  font-weight: 900;
+  font-weight: 700;
 `;
 
-const MenuList = styled.ul`
+const Menu = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 600;
   li {
-    margin-left: 60px;
+    margin-left: 20px;
   }
 `;
 
 export const Header = () => {
   return (
-    <div>
-      <HelloHeader>
-        <Logo>
-          <Link to={routes.home}>Main_Home</Link>
-        </Logo>
+    <HelloHeader>
+      <Logo>
+        <Link to={routes.home}>Main_Home</Link>
+      </Logo>
 
-        <MenuList>
-          <li>
-            <Link to={routes.detail}>Detail</Link>
-          </li>
-          <li>
-            <Link to={routes.search}>Search</Link>
-          </li>
-        </MenuList>
-      </HelloHeader>
-    </div>
+      <Menu>
+        <li>
+          <Link to={routes.detail}>Detail</Link>
+        </li>
+        <li>
+          <Link to={routes.search}>Search</Link>
+        </li>
+      </Menu>
+    </HelloHeader>
   );
 };
