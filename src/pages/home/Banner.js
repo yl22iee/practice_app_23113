@@ -6,6 +6,8 @@ const MainBanner = styled.section`
   background-color: lightgray;
   position: relative;
   padding: 400px 5%;
+  background: url(${IMG_URL}/original/${(props) => props.$bgUrl}) no-repeat
+    center / cover;
   h3,
   p {
     position: relative;
@@ -22,7 +24,7 @@ const MainBanner = styled.section`
   }
 
   p {
-    max-width: 650px;
+    max-width: 850px;
     width: 100%;
     font-size: 18px;
     font-weight: 400;
@@ -58,7 +60,7 @@ const BlackBg = styled.div`
 
 export const Banner = ({ data }) => {
   return (
-    <MainBanner>
+    <MainBanner $bgUrl={data.backdrop_path}>
       <BlackBg />
       <h3>{data.title}</h3>
       <p>{data.overview}</p>
